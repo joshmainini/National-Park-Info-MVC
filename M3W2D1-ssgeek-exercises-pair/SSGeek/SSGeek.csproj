@@ -145,6 +145,12 @@
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Planets\Index.cshtml" />
+    <Content Include="Views\Calculators\AlienAge.cshtml" />
+    <Content Include="Views\Calculators\AlienAgeResult.cshtml" />
+    <Content Include="Views\Calculators\AlienWeight.cshtml" />
+    <Content Include="Views\Calculators\AlienWeightResult.cshtml" />
+    <Content Include="Views\Calculators\AlienTravel.cshtml" />
+    <Content Include="Views\Calculators\AlienTravelResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -154,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Calculators\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <PropertyGroup>

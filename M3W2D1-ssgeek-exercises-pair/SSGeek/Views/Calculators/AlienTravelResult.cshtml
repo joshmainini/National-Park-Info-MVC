@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Alien Travel Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    double newEarthWeight = (Model.EarthAge + Model.CalculateTravel());
+}
+
+@using SSGeek.Models;
+@model SSGeek.Models.AlienAgeModel
+
+<h2 style="color: red; margin: 0 auto; padding-bottom: 20px; text-align:center;">Alien Age Result</h2>
+
+<section>
+
+    <img style="width: 200px;" src="~/Content/img/@(Model.PlanetList.ToLower()).jpg" />
+    <p style="color: red;">
+        Traveling by <strong>@Model.TravelList.ToString()</strong> you will reach <strong>@Model.PlanetList.ToString()</strong> in
+        <strong>@Model.CalculateTravel().ToString("0.00")</strong> years. You will be <strong>@newEarthWeight.ToString("0.00")</strong> years old.
+    </p>
+
+<p style="color: red; font-weight: bold;">@Html.ActionLink("Calculate Another", "AlienTravel", "Calculators")</p>
+
+</section>

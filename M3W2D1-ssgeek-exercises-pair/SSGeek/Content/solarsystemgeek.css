@@ -202,7 +202,7 @@ section.centeredPanel {
     }
 
 .centered {
-    text-align: center;
+    text-align: left;
     display: block;
     margin: 0 auto;
 }
@@ -214,4 +214,42 @@ section.centeredPanel {
     font-size: 16px;
     padding: 10px;
     margin-bottom: 10px;
+}
+.formInputGroup,
+body{
+    background-color: black;
+    width: 90%;
+}
+.formInputGroup-radio {
+    width: 50%;
+    margin-bottom: .5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formValidationGroup {
+    width: 90%;
+    margin-bottom: .5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formInputGroup-radio {
+    text-align: center;
+}
+
+.formInputGroup label,
+.formValidationGroup label {
+    display: inline-flex;
+    width: 10em;
+    text-align: left;
+    color: red;
+    padding-right: 10px;
+}
+
+.formSubmitButton {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }

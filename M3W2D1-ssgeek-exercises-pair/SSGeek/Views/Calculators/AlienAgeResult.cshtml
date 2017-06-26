@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Alien Age Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using SSGeek.Models;
+@model SSGeek.Models.AlienAgeModel
+
+<h2 style="color: red; margin: 0 auto; padding-bottom: 20px; text-align:center;">Alien Age Result</h2>
+
+<section>
+
+    <img style="width: 200px;" src="~/Content/img/@(Model.PlanetList.ToLower()).jpg" />
+    <p style="color: red;">
+        If you are <strong>@Model.EarthAge.ToString()</strong> years old on planet Earth, then you 
+        are <strong>@Model.CalculateAge().ToString("0.00")</strong> <strong>@Model.PlanetList</strong> years old. 
+    </p>
+
+    <p>@Html.ActionLink("Calculate Another", "AlienAge", "Calculators")</p>
+</section>

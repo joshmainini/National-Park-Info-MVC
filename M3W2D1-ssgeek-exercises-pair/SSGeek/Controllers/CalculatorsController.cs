@@ -22,11 +22,46 @@ namespace SSGeek.Controllers
             return View("AlienAge");
         }
 
-        public ActionResult AlienAgeResult(AlienAgeModel model)
-        {            
+        public ActionResult AlienAgeResult(string planetList, int earthAge)
+        {
+            AlienAgeModel model = new AlienAgeModel()
+            {
+                PlanetList = planetList,
+                EarthAge = earthAge
+            };
             return View("AlienAgeResult", model);
         }
         
+        public ActionResult AlienWeight()
+        {
+            return View("AlienWeight");
+        }
+
+        public ActionResult AlienWeightResult(string planetList, int earthWeight)
+        {
+            AlienAgeModel modelTwo = new AlienAgeModel()
+            {
+                PlanetList = planetList,
+                EarthWeight = earthWeight
+            };
+            return View("AlienWeightResult", modelTwo);
+        }
+
+        public ActionResult AlienTravel()
+        {
+            return View("AlienTravel");
+        }
+
+        public ActionResult AlienTravelResult(string planetList, string travelList, int earthAge)
+        {
+            AlienAgeModel travelModel = new AlienAgeModel()
+            {
+                PlanetList = planetList,
+                TravelList = travelList,
+                EarthAge = earthAge
+            };
+            return View("AlienTravelResult", travelModel);
+        }
         //TODO: Create an AlienWeight and AlienWeightResult Action
         //TODO: Create an AlienTravel and AlienTravelResult Action
 
