@@ -151,6 +151,8 @@
     <Content Include="Views\Calculators\AlienWeightResult.cshtml" />
     <Content Include="Views\Calculators\AlienTravel.cshtml" />
     <Content Include="Views\Calculators\AlienTravelResult.cshtml" />
+    <Content Include="Views\Home\SpaceForum.cshtml" />
+    <Content Include="Views\Home\SpaceForumResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -160,7 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

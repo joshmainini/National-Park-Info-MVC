@@ -1,0 +1,27 @@
+﻿@using SSGeek.DAL;
+@using SSGeek.Models;
+@model ForumPost
+@{
+    ViewBag.Title = "Space Forum";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color: red; text-align:center; margin: 0 auto; padding-bottom: 10px;">New Geek Post</h2>
+
+@using (Html.BeginForm("SpaceForumResult", "Home", FormMethod.Post))
+{
+    <div class="formInputGroup">
+        @Html.Label("userName", "Username")
+        @Html.TextBoxFor(m => m.Username)
+    </div>
+    <div class="formInputGroup">
+        @Html.Label("subject", "Subject")
+        @Html.TextBoxFor(m => m.Subject)
+    </div>
+     <div class="formInputGroup">
+            @Html.Label("message", "Message")
+            @Html.TextBoxFor(m => m.Message)
+      </div>
+
+    <button class="formSubmitButton">Submit!</button>
+}
