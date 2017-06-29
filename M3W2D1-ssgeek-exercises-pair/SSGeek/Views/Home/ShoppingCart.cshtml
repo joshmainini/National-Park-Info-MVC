@@ -1,0 +1,49 @@
+﻿@using SSGeek.Models;
+@model ShoppingCartModel
+@{
+    ViewBag.Title = "Shopping Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    double grandTotal = 0;
+}
+
+<section style="background-color: white;">
+    <h2 style="text-align: center; font-weight: bold; margin: 0 auto; padding-bottom: 20px;">Solar System Geek Gift Shop</h2>
+   <div>
+        @for(int i =0; i<Model.ShoppingCart.Count; i++)
+        {
+            <img src="~/Content/img/@Model.ShoppingCart[i].ImageName" />
+        }
+   </div>
+    <div>
+        <h4>Name</h4>
+        @for (int i = 0; i < Model.ShoppingCart.Count; i++)
+        {
+            <p>@Model.ShoppingCart[i].Name</p>
+        }
+    </div>
+    <div>
+        <h4>Price</h4>
+        @for (int i = 0; i < Model.ShoppingCart.Count; i++)
+        {
+            <p>$@(Model.ShoppingCart[i].Price.ToString("0.00"))</p>
+        }
+    </div>
+    <div>
+        <h4>Qty.</h4>
+        @for (int i = 0; i < Model.ShoppingCart.Count; i++)
+        {
+            <p>@Model.ShoppingCart[i].Quantity</p>
+        }
+    </div>
+    <div>
+        <h4>Total</h4>
+        @for (int i = 0; i < Model.ShoppingCart.Count; i++)
+        {
+            <p>$@((Model.ShoppingCart[i].Price * Model.ShoppingCart[i].Quantity).ToString("0.00"))</p>
+            @grandTotal = grandTotal + (Model.ShoppingCart[i].Price * Model.ShoppingCart[i].Quantity);
+        }
+        <h4>Grand Total $@grandTotal.ToString("0.00") </h4>
+    </div>
+</section>
+
+

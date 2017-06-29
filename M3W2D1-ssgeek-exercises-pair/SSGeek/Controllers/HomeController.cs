@@ -58,5 +58,12 @@ namespace SSGeek.Controllers
             return View("Detail", product);
         }
 
+		public ActionResult ShoppingCart(Product model)
+		{
+			ShoppingCartModel cart = Session["ShoppingCart"] as ShoppingCartModel;
+			cart.ShoppingCart.Add(model);
+			Session["ShoppingCart"] = cart;
+			return View("ShoppingCart", cart);
+		}
     }
 }

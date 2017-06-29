@@ -156,6 +156,7 @@
     <Content Include="Views\Home\SpaceForumResult.cshtml" />
     <Content Include="Views\Home\GiftShop.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\Home\ShoppingCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

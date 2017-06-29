@@ -8,24 +8,24 @@
 
 
 
-    <h2 style="text-align: center; color: red; font-weight: bold; margin: 0 auto; padding-bottom: 20px;">Solar System Geek Gift Shop</h2>
-    <ul style="list-style:none; color: red; text-align:left; padding-bottom: 50px;  ">
+<h2 style="text-align: center; font-weight: bold; margin: 0 auto; padding-bottom: 20px;">Solar System Geek Gift Shop</h2>
+<div style="list-style:none; text-align:left; padding-bottom: 30px; padding-top: 25px; background-color: white; ">
 
-        <li style="float: left;"><img src="~/Content/img/@(Model.ImageName)" style="width: 150px;" /></li>  
-        <li style="padding-left: 120px; font-weight: bold; font-size: 16px;">@Model.Name</li>
-        <li style="padding-left: 120px; font-size: 14px; color:deepskyblue">$@Model.Price</li>
-        <li style="padding-left: 120px; font-size: 12px;">@Model.Description</li>
-        <li style="padding-bottom: 40px;"></li>
-    </ul>
+    <p style="float: left;"><img src="~/Content/img/@(Model.ImageName)" style="width: 150px;" /></p>
+    <p style="padding-left: 120px; font-weight: bold; font-size: 16px;">@Model.Name</p>
+    <p style="padding-left: 120px; font-size: 14px; color:deepskyblue">$@Model.Price</p>
+    <p style="padding-left: 120px; font-size: 12px;">@Model.Description</p>
+    <p style="padding-bottom: 40px;"></p>
 
-@using (Html.BeginForm("ShoppingCart", "Home", FormMethod.Post))
-{
+    @using (Html.BeginForm("ShoppingCart", "Home", FormMethod.Post))
+    {
 
-    <div style="color:red">
-        @Html.Label("QTY", "Quantity to Buy")
-        @Html.TextBoxFor(m => m.Quantity)
-        <button>Add to Cart!</button>
-    </div>
+        <div class="qtyDiv">
+            @Html.Label("QTY", "Quantity to Buy")
+            @Html.TextBoxFor(m => m.Quantity)
+            <button class="qty">Add to Cart!</button>
+        </div>
 
 
-}
+    }
+</div>
