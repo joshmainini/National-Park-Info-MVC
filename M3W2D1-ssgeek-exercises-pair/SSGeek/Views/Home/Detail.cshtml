@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Gift Shop Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SSGeek.DAL;
+@using SSGeek.Models;
+@model SSGeek.Models.Product
+
+
+
+    <h2 style="text-align: center; color: red; font-weight: bold; margin: 0 auto; padding-bottom: 20px;">Solar System Geek Gift Shop</h2>
+    <ul style="list-style:none; color: red; text-align:left; padding-bottom: 50px;  ">
+
+        <li style="float: left;"><img src="~/Content/img/@(Model.ImageName)" style="width: 150px;" /></li>  
+        <li style="padding-left: 120px; font-weight: bold; font-size: 16px;">@Model.Name</li>
+        <li style="padding-left: 120px; font-size: 14px; color:deepskyblue">$@Model.Price</li>
+        <li style="padding-left: 120px; font-size: 12px;">@Model.Description</li>
+        <li style="padding-bottom: 40px;"></li>
+    </ul>
+
+@using (Html.BeginForm("ShoppingCart", "Home", FormMethod.Post))
+{
+
+    <div style="color:red">
+        @Html.Label("QTY", "Quantity to Buy")
+        @Html.TextBoxFor(m => m.Quantity)
+        <button>Add to Cart!</button>
+    </div>
+
+
+}

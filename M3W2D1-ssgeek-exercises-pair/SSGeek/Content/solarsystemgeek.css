@@ -6,7 +6,8 @@
 }
 
 ul {
-    padding: 0px;
+    float: left;
+    padding-bottom: 25px;
 }
 
 h1 {

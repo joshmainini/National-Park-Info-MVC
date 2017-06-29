@@ -45,9 +45,18 @@ namespace SSGeek.Controllers
 
 			return View("SpaceForum");
 		}
-		public ActionResult SpaceStore()
+		public ActionResult GiftShop()
 		{
-			return View();
+            return View("GiftShop");
 		}
+        public ActionResult Detail(int id)
+        {
+
+            ProductSqlDAL dal = new ProductSqlDAL(connectionString);
+            Product product = dal.GetProduct(id);
+
+            return View("Detail", product);
+        }
+
     }
 }

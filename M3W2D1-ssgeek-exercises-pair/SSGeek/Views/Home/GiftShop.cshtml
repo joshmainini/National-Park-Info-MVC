@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Gift Shop Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SSGeek.DAL;
+@using SSGeek.Models;
+@model SSGeek.Models.Product
+@{
+    string connectionString = @"Data Source = localhost\sqlexpress; Initial Catalog = SSGeek; Integrated Security = True";
+
+
+    ProductSqlDAL dal = new ProductSqlDAL(connectionString);
+    List<Product> product = dal.GetProducts();
+    
+}
+
+<h2 style="text-align: center; color: red; margin: 0 auto; padding-bottom: 20px;">Solar System Geek Gift Shop</h2>
+
+    <ul style="list-style:none; color: red; text-align:left; padding-bottom: 50px;">
+
+
+        @foreach (Product p in product)
+        {
+            <li style="float: left;"><a href="@Url.Action("Detail", "Home", new { id = p.ProductId.ToString() })"><img src="~/Content/img/@(p.ImageName)" style="width: 90px;" /></a></li>
+            <li style="padding-left: 120px; color:black; font-weight: bold; font-size: 12px;">@p.ProductId</li>
+            <li style="padding-left: 120px; font-weight: bold; font-size: 12px;">@p.Name</li>
+            <li style="padding-left: 120px; font-size: 12px; color:deepskyblue">$@p.Price</li>
+            <li style="padding-bottom: 40px;"></li>
+
+        }
+    </ul>

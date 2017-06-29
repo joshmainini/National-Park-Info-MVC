@@ -2,18 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SSGeek.Models;
 
 namespace SSGeek.Models
 {
-    public class Product
+    public class ShoppingCartModel
     {
-        public int ProductId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public double Price { get; set; }
-        public string ImageName { get; set; }
         public List<Product> ShoppingCart { get; set; } = new List<Product>();
         public int Quantity { get; set; }
     }
-
 }

@@ -22,7 +22,7 @@
    {
        foreach(ForumPost post in forum)
        {
-           string postDate = @post.PostDate.ToString("MM/dd/yyyy 'at' HH:mm");
+           string postDate = post.PostDate.ToString("MM/dd/yyyy 'at' HH:mm");
            <li style="font-weight: bold; font-size: 18px; ">@post.Subject</li>
            <li style="font-size: 12px; padding-bottom: 10px;">by @post.Username on @postDate</li>
            <li style="padding-bottom: 35px; font-size: 12px;">@post.Message</li>

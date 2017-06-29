@@ -137,6 +137,7 @@
     <Compile Include="Models\AlienAgeModel.cs" />
     <Compile Include="Models\ForumPost.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ShoppingCartModel.cs" />
     <Compile Include="Models\TriviaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -153,6 +154,8 @@
     <Content Include="Views\Calculators\AlienTravelResult.cshtml" />
     <Content Include="Views\Home\SpaceForum.cshtml" />
     <Content Include="Views\Home\SpaceForumResult.cshtml" />
+    <Content Include="Views\Home\GiftShop.cshtml" />
+    <Content Include="Views\Home\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
