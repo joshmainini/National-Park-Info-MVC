@@ -91,7 +91,7 @@ li a:hover {
 }
 
 #planets {
-    display: flex;
+    display: inline-flex;
 }
 
 .planets * {

@@ -137,7 +137,6 @@
     <Compile Include="Models\AlienAgeModel.cs" />
     <Compile Include="Models\ForumPost.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ShoppingCartModel.cs" />
     <Compile Include="Models\TriviaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -23,9 +23,15 @@
         <div class="qtyDiv">
             @Html.Label("QTY", "Quantity to Buy")
             @Html.TextBoxFor(m => m.Quantity)
+            @Html.HiddenFor(m => m.ProductId)
+            @Html.HiddenFor(m => m.Name)
+            @Html.HiddenFor(m => m.Description)
+            @Html.HiddenFor(m => m.Price)
+            @Html.HiddenFor(m => m.ImageName)
             <button class="qty">Add to Cart!</button>
         </div>
 
 
     }
 </div>
+@*@using (Html.BeginForm("ShoppingCart", "Home", new { id = Model.ProductId, QTY = Model.Quantity }, FormMethod.Post))*@
