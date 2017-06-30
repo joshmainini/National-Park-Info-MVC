@@ -11,7 +11,13 @@ ul {
 }
 
 h1 {
-    font-size: 22px;
+    display: block;
+    font-size: 2em;
+    webkit-margin-before: 0.67em;
+    webkit-margin-after: 0.67em;
+    webkit-margin-start: 0px;
+    webkit-margin-end: 0px;
+    font-weight: bold;
 }
 
 h2 {
@@ -91,7 +97,7 @@ li a:hover {
 }
 
 #planets {
-    display: flex;
+    display: inline-flex;
 }
 
 .planets * {

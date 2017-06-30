@@ -64,6 +64,8 @@ namespace SSGeek.Controllers
 			cart.ShoppingCart.Add(model);
 			Session["ShoppingCart"] = cart;
 			return View("ShoppingCart", cart);
+
+            //Try copying everything from product model to shopping cart model. 
 		}
     }
 }
