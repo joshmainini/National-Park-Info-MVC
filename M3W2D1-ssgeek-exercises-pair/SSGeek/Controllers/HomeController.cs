@@ -60,8 +60,13 @@ namespace SSGeek.Controllers
 
 		public ActionResult ShoppingCart(Product model)
 		{
-			ShoppingCartModel cart = Session["ShoppingCart"] as ShoppingCartModel;
-			cart.ShoppingCart.Add(model);
+			List<Product> cart = new List<Product>();
+			cart = Session["ShoppingCart"] as List<Product>;
+			if (cart == null)
+			{
+				cart = new List<Product>();
+			}
+			cart.Add(model);
 			Session["ShoppingCart"] = cart;
 			return View("ShoppingCart", cart);
 

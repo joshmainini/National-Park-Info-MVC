@@ -13,6 +13,7 @@ namespace SSGeek.Models
         public double Price { get; set; }
         public string ImageName { get; set; }
         public int Quantity { get; set; }
+		
     }
 
 }

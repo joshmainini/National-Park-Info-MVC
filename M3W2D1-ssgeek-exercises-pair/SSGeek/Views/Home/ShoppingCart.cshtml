@@ -1,49 +1,66 @@
 ﻿@using SSGeek.Models;
-@model ShoppingCartModel
+@model List<Product>
 @{
     ViewBag.Title = "Shopping Cart";
     Layout = "~/Views/Shared/_Layout.cshtml";
     double grandTotal = 0;
 }
 
-<section style="background-color: white;">
     <h2 style="text-align: center; font-weight: bold; margin: 0 auto; padding-bottom: 20px;">Solar System Geek Gift Shop</h2>
-   <div>
-        @for(int i =0; i<Model.ShoppingCart.Count; i++)
+   <table style="text-align: left;">
+      <tr>
+          <td></td>
+          <td style="font-weight:bold"><h4>Name</h4></td>
+          <td style="padding-left: 500px; font-weight:bold"><h4>Price</h4></td>
+          <td style="font-weight:bold"><h4>Qty.</h4></td>
+          <td style="font-weight:bold"><h4>Total</h4></td>
+      </tr>
+        @for(int i =0; i<Model.Count; i++)
         {
-            <img src="~/Content/img/@Model.ShoppingCart[i].ImageName" />
+            grandTotal = grandTotal + (Model[i].Price * Model[i].Quantity);
+            <tr>
+                <th><img src="~/Content/img/@Model[i].ImageName" style=" width: 300px; padding-bottom: 5px;" /></th>
+                <td style=" column-width: 400px;">@Model[i].Name</td>
+                <td style=" padding-left: 500px;">$@(Model[i].Price.ToString("0.00"))</td>
+                <td style=" padding-left: 15px;">@Model[i].Quantity</td>
+                <td style="">$@((Model[i].Price * Model[i].Quantity).ToString("0.00"))</td>
+            </tr>
+
         }
-   </div>
-    <div>
+   </table>
+<h4 style="color: white; text-align: right;">Grand Total $@grandTotal.ToString("0.00") </h4>
+<p style="text-align:right;"><a href="#">Check out</a></p>
+    @*<div style="display:inline; text-align: left; margin: 0 auto;" >
         <h4>Name</h4>
-        @for (int i = 0; i < Model.ShoppingCart.Count; i++)
+        @for (int i = 0; i < Model.Count; i++)
         {
-            <p>@Model.ShoppingCart[i].Name</p>
+            <p>@Model[i].Name</p>
         }
     </div>
-    <div>
-        <h4>Price</h4>
-        @for (int i = 0; i < Model.ShoppingCart.Count; i++)
+    <div style="display:inline; text-align: center;">
+        <h4>Name</h4>
+        @for (int i = 0; i < Model.Count; i++)
         {
-            <p>$@(Model.ShoppingCart[i].Price.ToString("0.00"))</p>
+            <p>$@(Model[i].Price.ToString("0.00"))</p>
         }
     </div>
-    <div>
+    <div style="display:inline;">
         <h4>Qty.</h4>
-        @for (int i = 0; i < Model.ShoppingCart.Count; i++)
+        @for (int i = 0; i < Model.Count; i++)
         {
-            <p>@Model.ShoppingCart[i].Quantity</p>
+            <p>@Model[i].Quantity</p>
         }
-    </div>
-    <div>
+    </div>*@
+    @*<div style="display:inline;">
         <h4>Total</h4>
-        @for (int i = 0; i < Model.ShoppingCart.Count; i++)
+        @for (int i = 0; i < Model.Count; i++)
         {
-            <p>$@((Model.ShoppingCart[i].Price * Model.ShoppingCart[i].Quantity).ToString("0.00"))</p>
-            @grandTotal = grandTotal + (Model.ShoppingCart[i].Price * Model.ShoppingCart[i].Quantity);
-        }
-        <h4>Grand Total $@grandTotal.ToString("0.00") </h4>
-    </div>
-</section>
+            grandTotal = grandTotal + (Model[i].Price * Model[i].Quantity);
+
+            <p>$@((Model[i].Price * Model[i].Quantity).ToString("0.00"))</p>
+                
+        }*@
+        @*<h4>Grand Total $@grandTotal.ToString("0.00") </h4>*@
+    @*</div>*@
 
 
