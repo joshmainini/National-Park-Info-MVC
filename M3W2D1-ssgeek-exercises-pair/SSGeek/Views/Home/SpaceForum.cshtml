@@ -7,6 +7,7 @@
 }
 
 @{ 
+    
     string connectionString = @"Data Source = localhost\sqlexpress; Initial Catalog = SSGeek; Integrated Security = True";
 
 
@@ -15,7 +16,13 @@
 }
 
 <h2 style="color: red; text-align:center; margin: 0 auto; padding-bottom: 10px;">Solar System Geek Forum</h2>
-<p style="color: red; font-weight: bold; text-align:center; margin: 0 auto;">@Html.ActionLink("Post a Message", "SpaceForum", "Home")</p>
+@if (TempData["Confirmation"] != null)
+{
+    string result = TempData["Confirmation"] as string;
+    <p style="color: white; font-weight: bold; margin 0 auto; text-align: center; background-color: forestgreen;">@result</p>
+}
+
+<p style="color: red; font-weight: bold; text-align:center; margin: 0 auto;">@Html.ActionLink("Post a Message", "SpaceForumResult", "Home")</p>
 
 <ul style="color: red; list-style: none">
    @if (forum.Count > 0)
@@ -25,6 +32,7 @@
            string postDate = post.PostDate.ToString("MM/dd/yyyy 'at' HH:mm");
            <li style="font-weight: bold; font-size: 18px; ">@post.Subject</li>
            <li style="font-size: 12px; padding-bottom: 10px;">by @post.Username on @postDate</li>
+
            <li style="padding-bottom: 35px; font-size: 12px;">@post.Message</li>
        }
    }

@@ -25,7 +25,8 @@ namespace SSGeek.Controllers
         }
 		public ActionResult SpaceForum()
 		{
-			return View("SpaceForumResult");
+           
+			return View("SpaceForum");
 		}
 
 		public ActionResult SpaceForumResult(string username, string subject, string message)
@@ -36,7 +37,8 @@ namespace SSGeek.Controllers
 				Subject = subject,
 				Message = message
 			};
-			return View("SpaceForum", model);
+            TempData["confirmation"] = "Your message has been saved!";
+            return View("SpaceForumResult", model);
 		}
 		[HttpPost]
 		public ActionResult SpaceForumResult(ForumPost post)
@@ -70,7 +72,6 @@ namespace SSGeek.Controllers
 			Session["ShoppingCart"] = cart;
 			return View("ShoppingCart", cart);
 
-            //Try copying everything from product model to shopping cart model. 
 		}
     }
 }
