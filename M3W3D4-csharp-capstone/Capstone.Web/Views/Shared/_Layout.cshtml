@@ -1,0 +1,23 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <img src="~/Content/img/logo.png" alt="National Park Geek logo" style="height: 110px;" />
+    </header>
+    <nav>
+        <ul style="list-style: none; justify-content: flex-start; display: flex;">
+            <li style="padding-right: 10px;">@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Survey", "Survey", "Home")</li>
+        </ul>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
