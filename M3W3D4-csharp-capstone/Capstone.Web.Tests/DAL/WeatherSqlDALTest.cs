@@ -1,5 +1,12 @@
 ﻿using System;
+using System.Text;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Transactions;
+using System.Configuration;
+using System.Data.SqlClient;
+using Capstone.Web.Models;
+using Capstone.Web.DAL;
 
 namespace Capstone.Web.Tests.DAL
 {

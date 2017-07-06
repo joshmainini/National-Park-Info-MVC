@@ -15,10 +15,10 @@ namespace Capstone.Web.DAL
         {
             this.connectionString = connectionString;
         }
-        public Weather GetWeather(string id)
+        public List<Weather> GetWeather(string id)
         {
 
-            Weather output = new Weather();
+            List<Weather> output = new List<Weather>();
 
             try
             {
@@ -35,12 +35,12 @@ namespace Capstone.Web.DAL
                     {
                         Weather w = new Weather();
                         w.ParkCode = Convert.ToString(reader["parkCode"]);
-                        w.Forecast.Add(Convert.ToString(reader["forecast"]));
-                        w.ForcastValue.Add(Convert.ToInt32(reader["fiveDayForecastValue"]));
-                        w.LowTemp.Add(Convert.ToInt32(reader["low"]));
-                        w.HighTemp.Add(Convert.ToInt32(reader["high"]));
+                        w.Forecast = Convert.ToString(reader["forecast"]);
+                        w.ForcastValue = Convert.ToInt32(reader["fiveDayForecastValue"]);
+                        w.LowTemp = Convert.ToInt32(reader["low"]);
+                        w.HighTemp = Convert.ToInt32(reader["high"]);
 
-                        output = w;
+                        output.Add(w);
                     }
                 }
             }

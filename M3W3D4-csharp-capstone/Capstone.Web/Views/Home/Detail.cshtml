@@ -7,7 +7,7 @@
 @{
     string connectionString = @"Data Source = localhost\sqlexpress; Initial Catalog = NationalParkGeek; Integrated Security = True";
     WeatherSqlDAL dal = new WeatherSqlDAL(connectionString);
-    Weather w = dal.GetWeather(ViewBag.weather);
+    List<Weather> weather = dal.GetWeather(ViewBag.weather);
 }
 @model Parks
 
@@ -75,10 +75,76 @@
             </tr>
         </table>
     </section>
-    <div>
-
-        <img src="~/Content/img/weather/@(w.Forecast[0]).png" />
-        <p>High @w.HighTemp[0] Low @w.LowTemp[0]</p>
+    <section>
+    <div style="display: inline;">
+       <h2>Today</h2>
+        @if (@weather[0].Forecast == "partly cloudy")
+        {
+            <img src="~/Content/img/weather/partlyCloudy.png" />
+        }
+        else
+        {
+             <img src="~/Content/img/weather/@(weather[0].Forecast).png"/>
+        }
+        <p>High @weather[0].HighTemp Low @weather[0].LowTemp</p>
+        @if(@weather[0].Forecast == "snow")
+        {
+            <p>Make sure you pack snow shoes!</p>
+        }
+        else if(weather[0].Forecast == "rain")
+        {
+            <p>Make sure you pack your rain gear and waterproof shoes!</p>
+        }
+        else if(weather[0].Forecast == "thunderstorms")
+        {
+            <p>Seek shelter and avoid hiking on exposed ridges!</p>
+        }
+        else if(weather[0].Forecast == "sunny")
+        {
+            <p>Remember to pack sunblock!</p>
+        }
+        @if (@weather[0].HighTemp > 75)
+        {
+            <p>Please bring an extra gallon of water!</p>
+        }
+        else if((@weather[0].HighTemp - @weather[0].LowTemp) > 20)
+        {
+            <p>Please wear breathable layers. </p>
+        }
+        else if(@weather[0].LowTemp < 20)
+        {
+            <p>Warning: Exposure to fridged temperatures can be dangerous!</p>
+        }
     </div>
+    <div style="display: inline-flex;">
+        <table class="weatherTable">
+            <tr>
+                @for(int i = 1; i<weather.Count; i++)
+                {
+                    if (@weather[i].Forecast == "partly cloudy")
+                    {
+                        <td><img src="~/Content/img/weather/partlyCloudy.png" style="width: 50%;"/></td>
+                    }
+                    else
+                    {
+                        <td><img src="~/Content/img/weather/@(weather[i].Forecast).png" style="width: 50%;" /></td>
+                    }
+                }
+           </tr>
+            <tr>
+                @for (int i = 1; i < weather.Count; i++)
+                {
+                    <td>High @weather[i].HighTemp</td>
+                }
+            </tr>
+            <tr>
+                @for (int i = 1; i < weather.Count; i++)
+                {
+                    <td>Low @weather[i].LowTemp</td>
+                }
+            </tr>
+        </table>
+    </div>
+    </section>
 </section>
 
