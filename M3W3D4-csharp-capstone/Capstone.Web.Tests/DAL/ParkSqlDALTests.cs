@@ -3,6 +3,8 @@ using System.Data.SqlClient;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Capstone.Web.Models;
 using Capstone.Web.DAL;
+using System.Transactions;
+using System.Collections.Generic;
 
 namespace Capstone.Web.Tests.DAL
 {
@@ -28,7 +30,7 @@ namespace Capstone.Web.Tests.DAL
 		[TestMethod]
 		public void GetAllParksTest()
 		{
-			List<Park> result = new List<Park>();
+			List<Parks> result = new List<Parks>();
 
 			ParkSqlDAL parks = new ParkSqlDAL(connectionString);
 
@@ -39,18 +41,18 @@ namespace Capstone.Web.Tests.DAL
 		[TestMethod]
 		public void GetParkTest()
 		{
-			Park result = new Park();
+			Parks result = new Parks();
 
 			ParkSqlDAL parks = new ParkSqlDAL(connectionString);
 
 			result = parks.GetPark("ENP");
 
-			Assert.AreEqual(1, result.Count);
+			Assert.AreEqual(1, parks.GetPark("1"));
 		}
 		[TestMethod]
 		public void GetParkTest_name()
 		{
-			Park result = new Park();
+			Parks result = new Parks();
 
 			ParkSqlDAL parks = new ParkSqlDAL(connectionString);
 

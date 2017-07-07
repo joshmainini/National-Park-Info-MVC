@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Survey";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Capstone.Web.DAL
+@using Capstone.Web.Models
+
+@model SurveyModel
+
+<h2 style="padding-bottom: 20px;">New Park Survey </h2>
+
+@using (Html.BeginForm("Survey", "Home", FormMethod.Post))
+{
+    <div class="formInputGroup">
+        @Html.LabelFor(m => m.FavoritePark, "Favorite National Park")
+        @Html.DropDownListFor(m => m.FavoritePark, SurveyModel.ParkName)
+        @Html.ValidationMessageFor(m => m.FavoritePark)
+    </div>
+    <br />
+    <div class="formInputGroup">
+        @Html.LabelFor(m => m.Email, "Your Email")
+        @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+    <br />
+    <div class="formInputGroup">
+        @Html.LabelFor(m => m.Residence, "State of Residence")
+        @Html.DropDownListFor(m => m.Residence, SurveyModel.State)
+        @Html.ValidationMessageFor(m => m.Residence)
+    </div>
+    <br />
+    <tr class="formInputGroup-radio">
+        <th>
+            @Html.LabelFor(m => m.ActivityLevel, "Activity Level")          
+        </th>
+        <td>
+            @Html.RadioButtonFor(m => m.ActivityLevel, "Very Low")  Very Low
+            @Html.RadioButtonFor(m => m.ActivityLevel, "Low") Low
+            @Html.RadioButtonFor(m => m.ActivityLevel, "High")  High
+            @Html.RadioButtonFor(m => m.ActivityLevel, "Very High") Very High
+        </td>
+    </tr>
+    <br />
+    <button class="formSubmitButton">Submit</button>
+
+}

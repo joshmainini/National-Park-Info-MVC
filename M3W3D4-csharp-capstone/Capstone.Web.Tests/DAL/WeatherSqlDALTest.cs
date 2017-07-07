@@ -1,5 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Transactions;
+using Capstone.Web.Models;
+using Capstone.Web.DAL;
 
 namespace Capstone.Web.Tests.DAL
 {

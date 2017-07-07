@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "SurveyResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Capstone.Web.DAL
+@using Capstone.Web.Models
+@model SurveyModel
+@{
+
+    string connectionString = @"Data Source = localhost\sqlexpress; Initial Catalog = NationalParkGeek; Integrated Security = True";
+
+    SurveySqlDAL dal = new SurveySqlDAL(connectionString);
+    List<SurveyModel> s = dal.GetAllPosts();
+}
+
+<h2>Confirmation</h2>
+<p>You Have Successfully Submitted Your Survey.</p>
+
+<ul style="color: red; list-style: none">
+    @if (s.Count > 0)
+    {
+        foreach (SurveyModel post in s)
+        {
+            
+            <li style="font-weight: bold; font-size: 18px; ">@post.FavoritePark</li>
+            <li style="font-size: 12px; padding-bottom: 10px;">by @post.Email</li>
+            <li>@post.Residence</li>
+
+            <li style="padding-bottom: 35px;">@post.ActivityLevel</li>
+        }
+    }
+</ul>

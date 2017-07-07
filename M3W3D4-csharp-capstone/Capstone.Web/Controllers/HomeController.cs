@@ -13,7 +13,14 @@ namespace Capstone.Web.Controllers
     {
         string connectionString = @"Data Source = localhost\sqlexpress;Initial Catalog = NationalParkGeek; Integrated Security = True";
 
+        SurveySqlDAL surveyDAL;
+
         // GET: Home
+        public HomeController()
+        {
+            surveyDAL = new SurveySqlDAL(connectionString);
+        }
+
         public ActionResult Index()
         {
             ParkSqlDAL parkDAL = new ParkSqlDAL(connectionString);
@@ -28,7 +35,34 @@ namespace Capstone.Web.Controllers
             Parks parkModel = dal.GetPark(id);
 
             ViewBag.weather = id;
+            
             return View("Detail", parkModel);
+        }
+
+        public ActionResult Survey()
+        {
+           
+
+            return View("Survey");
+        }
+        public ActionResult SurveyResult()
+        {
+            surveyDAL.GetAllPosts();
+
+            return View("SurveyResult");
+        }
+
+        [HttpPost]
+        public ActionResult Survey(SurveyModel post)
+        {
+            surveyDAL.SaveNewPost(post);
+
+            if (!ModelState.IsValid)
+            {
+                return View("Survey", post);
+            }
+
+            return RedirectToAction("SurveyResult", "Home");
         }
     }
 }
