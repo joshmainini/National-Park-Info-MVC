@@ -1,6 +1,9 @@
 ﻿body {
     background-color: navajowhite;
 }
+*{
+    font-family: 'Palatino Linotype'
+}
 
 header {
     background-color: navajowhite

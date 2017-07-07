@@ -13,18 +13,6 @@ namespace Capstone.Web.Controllers.Tests
     public class HomeControllerTests
     {
 		[TestMethod()]
-		public void IndexTest()
-		{
-			//Arrange
-			HomeController controller = new HomeController();
-
-			ViewResult result = controller.Index() as ViewResult;
-
-			//Assert
-			Assert.IsNotNull(result);
-			Assert.AreEqual("Index", result.ViewName);
-		}
-		[TestMethod()]
 		public void DetailTest()
 		{
 		
@@ -37,5 +25,32 @@ namespace Capstone.Web.Controllers.Tests
 			Assert.IsNotNull(result);
 			Assert.AreEqual("Detail", result.ViewName);
 		}
+		[TestMethod()]
+		public void SurveyTest()
+		{
+
+			HomeController controller = new HomeController();
+
+
+			ViewResult result = controller.Survey() as ViewResult;
+
+
+			Assert.IsNotNull(result);
+			Assert.AreEqual("Survey", result.ViewName);
+		}
+		[TestMethod()]
+		public void SurveyResultTest()
+		{
+
+			HomeController controller = new HomeController();
+
+
+			ViewResult result = controller.SurveyResult() as ViewResult;
+
+
+			Assert.IsNotNull(result);
+			Assert.AreEqual("SurveyResult", result.ViewName);
+		}
+
 	}
 }

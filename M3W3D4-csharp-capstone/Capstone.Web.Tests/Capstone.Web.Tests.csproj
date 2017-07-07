@@ -87,7 +87,9 @@
   <ItemGroup>
     <Compile Include="Controllers\HomeControllerTests.cs" />
     <Compile Include="DAL\ParkSqlDALTests.cs" />
+    <Compile Include="DAL\SurveySqlDALTests.cs" />
     <Compile Include="DAL\WeatherSqlDALTest.cs" />
+    <Compile Include="Models\WeatherTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
