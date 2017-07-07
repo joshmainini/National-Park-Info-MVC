@@ -32,13 +32,13 @@ namespace Capstone.Web.Tests.DAL
 		[TestMethod]
 		public void GetWeatherTest_ParkCode()
 		{
-			Weather result = new Weather();
+			List<Weather> result = new List<Weather>();
 
 			WeatherSqlDAL weather = new WeatherSqlDAL(connectionString);
 
 			result = weather.GetWeather("ENP");
 
-			Assert.AreEqual("ENP", result.ParkCode);
+			Assert.AreEqual("ENP", result[1].ParkCode);
 		}
 	}
 }
