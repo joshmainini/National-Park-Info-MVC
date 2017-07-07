@@ -4,19 +4,23 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/StyleSheet.css">
     <title>@ViewBag.Title</title>
     <link rel="StyleSheet" href="~/Content/StyleSheet.css">
 </head>
 <body>
     <header>
-        <img src="~/Content/img/logo.png" alt="National Park Geek logo" style="height: 110px;" />
+            <img src="~/Content/img/logo.png" alt="National Park Geek logo" style="height: 110px;" />     
     </header>
-    <nav>
-        <ul style="list-style: none; justify-content: flex-start; display: flex;">
-            <li style="padding-right: 10px;">@Html.ActionLink("Home", "Index", "Home")</li>
-            <li>@Html.ActionLink("Survey", "Survey", "Home")</li>
-        </ul>
-    </nav>
+    <div  style="background-color:lawngreen; height: 30px; margin-bottom: 25px;">
+        <nav>
+            <ul style="list-style: none; justify-content: flex-start; display: flex;">
+                <li style="padding-right: 10px;">@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Survey", "Survey", "Home")</li>
+                <li style="padding-left: 10px;">@Html.ActionLink("Preferences", "Preferences", "Home")</li>
+            </ul>
+        </nav>
+    </div>
     <div>
         @RenderBody()
     </div>

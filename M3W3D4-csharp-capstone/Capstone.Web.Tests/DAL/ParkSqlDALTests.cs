@@ -1,10 +1,10 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Capstone.Web.Models;
 using Capstone.Web.DAL;
+using System.Data.SqlClient;
 using System.Transactions;
-using System.Collections.Generic;
+
 
 namespace Capstone.Web.Tests.DAL
 {
@@ -39,7 +39,7 @@ namespace Capstone.Web.Tests.DAL
 			Assert.AreEqual(10, result.Count);
 		}
 		[TestMethod]
-		public void GetParkTest()
+		public void GetParkTest_climate()
 		{
 			Parks result = new Parks();
 
@@ -47,7 +47,7 @@ namespace Capstone.Web.Tests.DAL
 
 			result = parks.GetPark("ENP");
 
-			Assert.AreEqual(1, parks.GetPark("1"));
+			Assert.AreEqual("Tropical", result.Climate);
 		}
 		[TestMethod]
 		public void GetParkTest_name()

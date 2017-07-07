@@ -7,22 +7,25 @@
 @{
     string connectionString = @"Data Source = localhost\sqlexpress; Initial Catalog = NationalParkGeek; Integrated Security = True";
     WeatherSqlDAL dal = new WeatherSqlDAL(connectionString);
-    Weather w = dal.GetWeather(ViewBag.weather);
+    List<Weather> weather = dal.GetWeather(ViewBag.weather);
+
 }
 @model Parks
 
 
 
-<section>
-    <div style="margin: 0 auto; text-align: center;"><img src="~/Content/img/parks/@(Model.ParkCode).jpg" style="width: 85%; height: 500px;" /></div>
+<section style="padding-left: 40px;">
+    @*<div style="margin: 0 auto; text-align: center;"><img src="~/Content/img/parks/@(Model.ParkCode).jpg" style="width: 85%; height: 500px;" /></div>*@
+    <div style="margin: 0 auto; text-align: center; display: inline-flex;">
+        <img src="~/Content/img/parks/@(Model.ParkCode).jpg" style="width: 100%; height: 100%;" />
+    </div>
     <br />
-
-    <section style="background-color: gray; width: 50%; margin-left: 85px;  ">
-        <p style="color: darkred;">@Model.Name</p>
-        <p style="color: darkred;">@Model.State</p>
-    </section>
+    <div style="font-weight: bold;">
+        <p>-@Model.Name</p>
+        <p style="position: relative; bottom: 10px; left: 10px;">@Model.State</p>
+    </div>
     <br />
-    <section style="background-color: forestgreen; width: 90%; margin-left: 85px;">
+    <div style="width: 80%; margin: 0 auto; display: inline-flex;">
         <table>
             <tr>
                 <th style="font-weight: bold; text-align: left;">Acreage:</th>
@@ -46,15 +49,15 @@
                 <td>@Model.Climate</td>
             </tr>
             <tr>
-                <th style="font-weight: bold; text-align: left;">Year Founded</th>
+                <th style="font-weight: bold; text-align: left;">Year Founded:</th>
                 <td>@Model.YearFounded</td>
             </tr>
             <tr>
-                <th style="font-weight: bold; text-align: left;">Annual Visitors:</th>
+                <th style="font-weight: bold; text-align: left;">Annual Visitors: </th>
                 <td>@Model.AnnualVisitors</td>
             </tr>
             <tr>
-                <th style="font-weight: bold; text-align: left;">Description:</th>
+                <th style="font-weight: bold; text-align: left;">Description: </th>
                 <td>@Model.Description</td>
             </tr>
             <tr>
@@ -62,23 +65,85 @@
                 <td>@Model.EntryFee</td>
             </tr>
             <tr>
-                <th style="font-weight: bold; text-align: left;">Number of Animal Species</th>
+                <th style="font-weight: bold; text-align: left;">Number of Animal Species: </th>
                 <td>@Model.AnimalSpecies</td>
             </tr>
             <tr>
-                <th style="font-weight: bold; text-align: left;">Our Quote:</th>
+                <th style="font-weight: bold; text-align: left;">Park Quote:</th>
                 <td>@Model.Quote</td>
             </tr>
             <tr>
-                <th style="font-weight: bold; text-align: left;">-Author:</th>
-                <td>@Model.QuoteAuthor</td>
+                <th></th>
+                <td>-@Model.QuoteAuthor</td>
             </tr>
         </table>
-    </section>
-    <div>
-
-        <img src="~/Content/img/weather/@(w.Forecast[0]).png" />
-        <p>High @w.HighTemp[0] Low @w.LowTemp[0]</p>
     </div>
+    <br />
+    <br />
+    <br />
+    <section style="background-color: white;">
+        <hr style="border-width: 2px; color: black;" />
+
+        <div style="display: inline;" class="todaysWeather">
+            <h2 style="position:relative; right: 625px">Today</h2>
+            @if (@weather[0].Forecast == "partly cloudy")
+            {
+                <img src="~/Content/img/weather/partlyCloudy.png" />}
+            else
+            {
+                <img src="~/Content/img/weather/@(weather[0].Forecast).png" />}
+            <div style="position:relative; right: 625px">
+                <p>High @weather[0].GetHighTemp((@Session["Celsius"] == "C" ? true : false)).ToString("0.0")    Low @weather[0].GetLowTemp((@Session["Celsius"] == "C" ? true : false)).ToString("0.0")</p>
+                @if (@weather[0].Forecast == "snow")
+                {
+                    <p>Make sure you pack snow shoes!</p>}
+                else if (weather[0].Forecast == "rain")
+                {
+                    <p>Make sure you pack your rain gear and waterproof shoes!</p>}
+                else if (weather[0].Forecast == "thunderstorms")
+                {
+                    <p>Seek shelter and avoid hiking on exposed ridges!</p>}
+                else if (weather[0].Forecast == "sunny")
+                {
+                    <p>Remember to pack sunblock!</p>}
+                @if (@weather[0].HighTemp > 75)
+                {
+                    <p style="position: relative; left: 65px;">Please bring an extra gallon of water!</p>}
+                else if ((@weather[0].HighTemp - @weather[0].LowTemp) > 20)
+                {
+                    <p>Please wear breathable layers. </p>}
+                else if (@weather[0].LowTemp < 20)
+                {
+                    <p>Warning: Exposure to fridged temperatures can be dangerous!</p>}
+            </div>
+        </div>
+        <div style="display: inline-flex;">
+            <table class="weatherTable">
+                <tr>
+                    @for (int i = 1; i < weather.Count; i++)
+                    {
+                        if (@weather[i].Forecast == "partly cloudy")
+                        {
+                            <td><img src="~/Content/img/weather/partlyCloudy.png" style="width: 50%;" /></td>
+}
+                        else
+                        {
+                            <td><img src="~/Content/img/weather/@(weather[i].Forecast).png" style="width: 50%;" /></td>
+}
+                    }
+                </tr>
+                <tr>
+                    @for (int i = 1; i < weather.Count; i++)
+                    {
+                        <td>High @weather[i].GetHighTemp((@Session["Celsius"] == "C" ? true : false)).ToString("0.0")</td>}
+                </tr>
+                <tr>
+                    @for (int i = 1; i < weather.Count; i++)
+                    {
+                        <td>Low @weather[i].GetLowTemp((@Session["Celsius"] == "C" ? true : false)).ToString("0.0")</td>}
+                </tr>
+            </table>
+        </div>
+    </section>
 </section>
 

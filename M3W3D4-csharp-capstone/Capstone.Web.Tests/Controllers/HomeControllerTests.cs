@@ -12,17 +12,30 @@ namespace Capstone.Web.Controllers.Tests
     [TestClass()]
     public class HomeControllerTests
     {
-        [TestMethod()]
-        public void HomeController_IndexAction_ReturnIndexView()
-        {
-            //Arrange
-            HomeController controller = new HomeController();
+		[TestMethod()]
+		public void IndexTest()
+		{
+			//Arrange
+			HomeController controller = new HomeController();
 
-            //Act
-            ViewResult result = controller.Index() as ViewResult;
+			ViewResult result = controller.Index() as ViewResult;
 
-            //Assert
-            Assert.AreEqual("Index", result.ViewName);
-        }
-    }
+			//Assert
+			Assert.IsNotNull(result);
+			Assert.AreEqual("Index", result.ViewName);
+		}
+		[TestMethod()]
+		public void DetailTest()
+		{
+		
+			HomeController controller = new HomeController();
+
+		
+			ViewResult result = controller.Detail("CVNP") as ViewResult;
+
+		
+			Assert.IsNotNull(result);
+			Assert.AreEqual("Detail", result.ViewName);
+		}
+	}
 }
