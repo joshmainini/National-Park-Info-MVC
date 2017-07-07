@@ -35,7 +35,7 @@ namespace Capstone.Web.Controllers
 			return View("Index", model);
         }
 
-        public ActionResult Detail(string id, bool? Celsius)
+        public ActionResult Detail(string id)
         {
             ParkSqlDAL dal = new ParkSqlDAL(connectionString);
             Parks parkModel = dal.GetPark(id);
