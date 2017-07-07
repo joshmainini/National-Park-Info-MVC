@@ -1,31 +1,36 @@
-﻿body {
-    background-color: navajowhite;
+﻿
+.formInputGroup,
+body {
+    width: 90%;
 }
-header{
-    background-color: navajowhite
+
+.formInputGroup-radio {
+    width: 50%;
+    margin-bottom: .5em;
+    text-align: left;
 }
-nav {
-    margin-top: 15px;
+
+.formValidationGroup {
+    width: 90%;
+    margin-bottom: .5em;
+    margin-left: auto;
+    margin-right: auto;
 }
-a:link, a:visited {
-    color: black;
+
+
+
+.formInputGroup label,
+.formValidationGroup label {
+    display: inline-flex;
+    width: 10em;
+    text-align: left;
+
+    padding-right: 10px;
+}
+
+.formSubmitButton {
+    display: block;
     text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-
+    margin-left: auto;
+    margin-right: auto;
 }
-
-.weatherTable{
-    position: relative;
-    left: 400px;
-    bottom: 250px;
-    text-align: center;
-}
-.todaysWeather{
-    text-align:center;
-    max-width: 500px;
-    position: relative;
-    top: 100px;
-    left: 100px;
-}
-
