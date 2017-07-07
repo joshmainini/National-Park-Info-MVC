@@ -26,6 +26,19 @@ namespace Capstone.Web.Controllers
             ParkSqlDAL parkDAL = new ParkSqlDAL(connectionString);
             List<Parks> model = parkDAL.GetAllParks();
 
+            string result = Request.QueryString["celsius"];
+            if (result != null)
+            {
+                if (result.Contains("true"))
+                {
+                    Session["Celsius"] = "C";
+                }
+                else
+                {
+                    Session["Celsius"] = "F";
+                }
+            }
+
             return View("Index", model);
         }
 
@@ -35,8 +48,12 @@ namespace Capstone.Web.Controllers
             Parks parkModel = dal.GetPark(id);
 
             ViewBag.weather = id;
-            
+
             return View("Detail", parkModel);
+        }
+        public ActionResult Preferences()
+        {
+            return View("Preferences");
         }
 
         public ActionResult Survey()
