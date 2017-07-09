@@ -9,17 +9,20 @@
     <link rel="StyleSheet" href="~/Content/StyleSheet.css">
 </head>
 <body>
-    <header>
-            <img src="~/Content/img/logo.png" alt="National Park Geek logo" style="height: 110px;" />     
-    </header>
-    <div  style="background-color:lawngreen; height: 30px; margin-bottom: 25px;">
-        <nav>
-            <ul style="list-style: none; justify-content: flex-start; display: flex;">
-                <li style="padding-right: 10px;">@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Survey", "Survey", "Home")</li>
-                <li style="padding-left: 10px;">@Html.ActionLink("Preferences", "Preferences", "Home")</li>
-            </ul>
-        </nav>
+    <div style="background-color: lightgrey; width: 100%; position: fixed; clear: both;">
+        <header>
+                <img src="~/Content/img/logo.png" alt="National Park Geek logo"/>     
+        </header>
+            <nav>
+                <ul style="list-style: none; justify-content: flex-start; display: flex;">
+                    <li style="padding-right: 10px;">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Survey", "Survey", "Home")</li>
+                    <li style="padding-left: 10px;">@Html.ActionLink("Preferences", "Preferences", "Home")</li>
+                </ul>
+            </nav>
+    </div>
+    <div class="spacer">
+        &nbsp;
     </div>
     <div>
         @RenderBody()
