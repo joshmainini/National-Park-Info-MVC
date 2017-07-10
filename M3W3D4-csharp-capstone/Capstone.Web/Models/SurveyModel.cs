@@ -11,7 +11,7 @@ namespace Capstone.Web.Models
     public class SurveyModel
     {
         
-
+        public int Total { get; set; }
         [Required]
         public string FavoritePark { get; set; }
 

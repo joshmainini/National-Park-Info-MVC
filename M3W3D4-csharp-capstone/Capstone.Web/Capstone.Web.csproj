@@ -156,6 +156,7 @@
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Survey.cshtml" />
     <Content Include="Views\Home\SurveyResult.cshtml" />
+    <Content Include="Views\Home\Preferences.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

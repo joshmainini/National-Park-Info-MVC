@@ -7,7 +7,9 @@
 
 @model SurveyModel
 
-<h2 style="padding-bottom: 20px;">New Park Survey </h2>
+<h2 style="padding-bottom: 5px;px;">New Park Survey </h2>
+<p>Please Vote For Your Favorite National Park</p>
+<br />
 
 @using (Html.BeginForm("Survey", "Home", FormMethod.Post))
 {
@@ -31,16 +33,35 @@
     <br />
     <tr class="formInputGroup-radio">
         <th>
-            @Html.LabelFor(m => m.ActivityLevel, "Activity Level")          
+            @Html.LabelFor(m => m.ActivityLevel, "Activity Level: ")          
         </th>
         <td>
-            @Html.RadioButtonFor(m => m.ActivityLevel, "Very Low")  Very Low
-            @Html.RadioButtonFor(m => m.ActivityLevel, "Low") Low
-            @Html.RadioButtonFor(m => m.ActivityLevel, "High")  High
-            @Html.RadioButtonFor(m => m.ActivityLevel, "Very High") Very High
+            @Html.RadioButtonFor(m => m.ActivityLevel, "Very Low")  Inactive
+            @Html.RadioButtonFor(m => m.ActivityLevel, "Low") Sedentary
+            @Html.RadioButtonFor(m => m.ActivityLevel, "High")  Active
+            @Html.RadioButtonFor(m => m.ActivityLevel, "Very High") Extremely Active
         </td>
+        <br />
     </tr>
     <br />
     <button class="formSubmitButton">Submit</button>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
+   
 }

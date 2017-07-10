@@ -26,17 +26,14 @@ namespace Capstone.Web.DAL
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM survey_result", connection);
+                    SqlCommand cmd = new SqlCommand("select count(parkCode) as total, ParkCode from[NationalParkGeek].[dbo].[survey_result] group by ParkCode order by total desc;", connection);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
                         SurveyModel s = new SurveyModel();
-                        //s.SurveyId = Convert.ToInt32(reader["surveyId"]);
                         s.FavoritePark = Convert.ToString(reader["parkCode"]);
-                        s.Email = Convert.ToString(reader["emailAddress"]);
-                        s.Residence = Convert.ToString(reader["state"]);
-                        s.ActivityLevel = Convert.ToString(reader["activityLevel"]);
+                        s.Total = Convert.ToInt32(reader["total"]);
                         output.Add(s);
                     }
                 }
